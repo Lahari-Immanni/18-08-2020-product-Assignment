@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProductAssign1.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (!Model.Any())
+{
+<text>we dont have any customers any</text>
+}
+else
+{
+<table class=" table table-border table-hover ">
+    <thead>
+        <tr>
+            <th>ProductID</th>
+            <th>ProductName</th>
+            <th>ProductRate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+<tr>
+    <td>@c.ProductId</td>
+    <td>@Html.ActionLink(c.ProductName, "Deatils", "Product", new { id = c.ProductId }, null)</td>
+    <td>@c.Rate</td>
+</tr>}
+</table>}
